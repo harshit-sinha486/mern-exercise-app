@@ -2,11 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path')
-
+const https = require('https');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT||5000;
+app.set(PORT, () => console.log(`Server is listening on port ${PORT}...`));
+https.createServer(app).listen(80);
+https.createServer(app).listen(443);
 
 app.use(cors());
 app.use(express.json());
@@ -36,6 +39,6 @@ if(process.env.NODE_ENV === 'production'){
   
 }
 
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Server is running on port: ${port}`);
+// });
