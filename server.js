@@ -11,9 +11,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = 'mongodb+srv://harshit:2bpJhDewafbfhbJ@v1-olhzv.mongodb.net/exersise-app?retryWrites=true&w=majority';
 try {
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 } catch(err) {
   console.log(err)
