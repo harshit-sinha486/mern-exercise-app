@@ -2,20 +2,18 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path')
-const https = require('https');
+
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT||5000;
-app.set(PORT, () => console.log(`Server is listening on port ${PORT}...`));
-https.createServer(app).listen(80);
-https.createServer(app).listen(443);
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
+const URI=process.env.MONGODB_ENV||'mongodb+srv://harshit:2bpJhDewafbfhbJ@v1-olhzv.mongodb.net/exersise-app?retryWrites=true&w=majority';
 try {
-mongoose.connect(process.env.MONGODB_ENV, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+mongoose.connect(URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 } catch(err) {
   console.log(err)
@@ -39,6 +37,6 @@ if(process.env.NODE_ENV === 'production'){
   
 }
 
-// app.listen(port, () => {
-//     console.log(`Server is running on port: ${port}`);
-// });
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+});

@@ -10,7 +10,11 @@
     "server": "nodemon server.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm run install-client && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +26,7 @@
     "express": "^4.17.1",
     "mern-exersise-app": "file:client",
     "mongodb": "^3.5.9",
-    "mongoose": "^5.9.20"
+    "mongoose": "^5.9.20",
+    "node": "^14.8.0"
   }
 }
