@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path')
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -25,9 +25,6 @@ connection.once('open', () => {
 const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
 
-app.use('/exercises', exercisesRouter);
-app.use('/users', usersRouter);
-
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static(path.join(__dirname, 'client', 'build')));
 
@@ -36,6 +33,11 @@ if(process.env.NODE_ENV === 'production'){
   })
   
 }
+
+app.use('/exercises', exercisesRouter);
+app.use('/users', usersRouter);
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
