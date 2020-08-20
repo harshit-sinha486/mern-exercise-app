@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const path = require('path')
+const path = require('path');
 
 require('dotenv').config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT||8080;
 
 
 app.use(cors());
@@ -26,11 +26,13 @@ connection.once('open', () => {
 const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
 
-if(process.env.NODE_ENV === 'production'){
-  app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+if(process.env.NODE_ENV == 'production'){
+  app.use(express.static('client/build'));
 
   app.get('*', (req,res)=>{
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    console.log(res);
   })
   
 }
