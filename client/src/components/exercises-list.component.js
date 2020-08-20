@@ -23,7 +23,7 @@ export default class ExercisesList extends Component{
     }
     
     componentDidMount(){
-        axios.get("https://firstmernexerciseapp.herokuapp.com/"+process.env.PORT+"exercises/")
+        axios.get("/exercises/")
         .then(res=>{
             this.setState({exercises:res.data});
         })
