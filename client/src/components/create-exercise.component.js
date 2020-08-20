@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import axios from 'axios';
 
 require('dotenv').config();
-
+var port = parseInt(process.env.PORT);
 export default class CreateExercises extends Component{
     constructor(props){
         super(props);
@@ -24,7 +24,7 @@ export default class CreateExercises extends Component{
     }
 
     componentDidMount(){
-        axios.get(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/users`)
+        axios.get(`https://firstmernexerciseapp.herokuapp.com:${port}/users`)
         .then(res=>{
             if(res.data.length>0){
                 this.setState({
@@ -66,7 +66,7 @@ export default class CreateExercises extends Component{
         }
         console.log(exercise)
 
-        axios.post(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/exercises/add`,exercise)
+        axios.post(`https://firstmernexerciseapp.herokuapp.com:${port}/exercises/add`,exercise)
         .then(res=>console.log(res.data));
 
         window.location='/';

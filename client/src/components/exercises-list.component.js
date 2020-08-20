@@ -25,7 +25,7 @@ export default class ExercisesList extends Component{
     }
     
     componentDidMount(){
-        axios.get(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/exercises/`)
+        axios.get(`https://firstmernexerciseapp.herokuapp.com:${port}/exercises/`)
         .then(res=>{
             this.setState({exercises:res.data});
         })
@@ -34,7 +34,7 @@ export default class ExercisesList extends Component{
         })
     }
     deleteExercise(id){
-        axios.delete(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/exercises/`+id)
+        axios.delete(`https://firstmernexerciseapp.herokuapp.com:${port}/exercises/`+id)
         .then(res=>console.log(res.data));
 
         this.setState({

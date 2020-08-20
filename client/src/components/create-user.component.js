@@ -2,7 +2,7 @@ import React,{Component}from 'react';
 import axios from 'axios';
 
 require('dotenv').config();
-
+var port = parseInt(process.env.PORT);
 export default class CreateUsers extends Component{
     constructor(props){
         super(props);
@@ -26,7 +26,7 @@ export default class CreateUsers extends Component{
         }
         console.log(user)
 
-        axios.post(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/users/add`,user)
+        axios.post(`https://firstmernexerciseapp.herokuapp.com:${port}/users/add`,user)
         .then(res=>console.log(res));
         
         this.setState({
