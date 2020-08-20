@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 require('dotenv').config();
-
+var port = parseInt(process.env.PORT);
 const Exercise = props => (
     <tr>
       <td>{props.exercise.username}</td>
