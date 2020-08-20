@@ -23,7 +23,7 @@ export default class ExercisesList extends Component{
     }
     
     componentDidMount(){
-        axios.get("/exercises/")
+        axios.get(`:${process.env.PORT}/exercises/`)
         .then(res=>{
             this.setState({exercises:res.data});
         })
