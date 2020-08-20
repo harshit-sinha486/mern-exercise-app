@@ -3,6 +3,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 import axios from 'axios';
 
+require('dotenv').config();
+
 export default class EditExercises extends Component{
     constructor(props){
         super(props);
@@ -22,7 +24,7 @@ export default class EditExercises extends Component{
     }
 
     componentDidMount(){
-        axios.get("/exercises/"+this.props.match.params.id)
+        axios.get(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/exercises/`+this.props.match.params.id)
         .then(res=>{
             this.setState({
                 username:res.data.username,
@@ -32,7 +34,7 @@ export default class EditExercises extends Component{
             })
         })
         .catch(error=>{console.log(error)});
-        axios.get('/users')
+        axios.get(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/users`)
         .then(res=>{
             if(res.data.length>0){
                 this.setState({
@@ -74,7 +76,7 @@ export default class EditExercises extends Component{
         }
         console.log(exercise)
 
-        axios.post('/exercises/update/'+this.props.match.params.id,exercise)
+        axios.post(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/exercises/update/`+this.props.match.params.id,exercise)
         .then(res=>console.log(res.data));
 
         window.location='/';
