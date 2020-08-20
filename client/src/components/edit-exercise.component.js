@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import axios from 'axios';
 
 require('dotenv').config();
-
+var port = parseInt(process.env.PORT);
 export default class EditExercises extends Component{
     constructor(props){
         super(props);
@@ -24,7 +24,7 @@ export default class EditExercises extends Component{
     }
 
     componentDidMount(){
-        axios.get(`https://firstmernexerciseapp.herokuapp.com:${process.env.PORT}/exercises/`+this.props.match.params.id)
+        axios.get(`https://firstmernexerciseapp.herokuapp.com:${port}/exercises/`+this.props.match.params.id)
         .then(res=>{
             this.setState({
                 username:res.data.username,
