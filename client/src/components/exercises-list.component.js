@@ -1,9 +1,9 @@
 import React,{Component}from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
-require('dotenv').config();
-var port = parseInt(process.env.PORT)||8080;
+import port from (__dirname+'server.js');
+// require('dotenv').config();
+// var port = parseInt(process.env.PORT)||8080;
 const Exercise = props => (
     <tr>
       <td>{props.exercise.username}</td>
