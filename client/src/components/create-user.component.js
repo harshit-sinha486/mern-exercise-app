@@ -2,7 +2,7 @@ import React,{Component}from 'react';
 import axios from 'axios';
 
 require('dotenv').config();
-var port = parseInt(process.env.PORT);
+var port = parseInt(process.env.PORT)||8080;
 export default class CreateUsers extends Component{
     constructor(props){
         super(props);
