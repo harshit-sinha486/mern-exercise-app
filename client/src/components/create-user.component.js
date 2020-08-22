@@ -26,7 +26,7 @@ export default class CreateUsers extends Component{
         }
         console.log(user)
 
-        axios.post(`https://firstmernexerciseapp.herokuapp.com:${port}/users/add`,user)
+        axios.post(`/users/add`,user)
         .then(res=>console.log(res));
         
         this.setState({

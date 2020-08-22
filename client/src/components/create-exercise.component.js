@@ -24,7 +24,7 @@ export default class CreateExercises extends Component{
     }
 
     componentDidMount(){
-\        axios.get(`/users`)
+        axios.get(`/users`)
         .then(res=>{
             if(res.data.length>0){
                 this.setState({
@@ -66,7 +66,7 @@ export default class CreateExercises extends Component{
         }
         console.log(exercise)
 
-        axios.post(`https://firstmernexerciseapp.herokuapp.com:${port}/exercises/add`,exercise)
+        axios.post(`/exercises/add`,exercise)
         .then(res=>console.log(res.data));
 
         window.location='/';
