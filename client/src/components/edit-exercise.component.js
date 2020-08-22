@@ -3,8 +3,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 import axios from 'axios';
 
-require('dotenv').config();
-var port = process.env.PORT||8080;
+// require('dotenv').config();
+// var port = process.env.PORT||8080;
 export default class EditExercises extends Component{
     constructor(props){
         super(props);

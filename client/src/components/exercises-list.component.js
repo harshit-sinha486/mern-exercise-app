@@ -2,8 +2,8 @@ import React,{Component}from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-require('dotenv').config();
-var port = process.env.PORT||8080;
+// require('dotenv').config();
+// var port = process.env.PORT||8080;
 const Exercise = props => (
     <tr>
       <td>{props.exercise.username}</td>
@@ -34,7 +34,7 @@ export default class ExercisesList extends Component{
         })
     }
     deleteExercise(id){
-        axios.delete(`https://firstmernexerciseapp.herokuapp.com:${port}/exercises/`+id)
+        axios.delete(`/exercises/`+id)
         .then(res=>console.log(res.data));
 
         this.setState({

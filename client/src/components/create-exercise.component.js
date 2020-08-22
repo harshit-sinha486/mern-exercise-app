@@ -3,8 +3,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 import axios from 'axios';
 
-require('dotenv').config();
-var port = process.env.PORT||8080;
+// require('dotenv').config();
+// var port = process.env.PORT||8080;
 export default class CreateExercises extends Component{
     constructor(props){
         super(props);
@@ -24,7 +24,7 @@ export default class CreateExercises extends Component{
     }
 
     componentDidMount(){
-        axios.get(`https://firstmernexerciseapp.herokuapp.com:${port}/users`)
+\        axios.get(`/users`)
         .then(res=>{
             if(res.data.length>0){
                 this.setState({
